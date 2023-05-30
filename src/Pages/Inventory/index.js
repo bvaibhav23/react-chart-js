@@ -11,14 +11,14 @@ const Inventory = () => {
   const [products] = useContext(productContext);
   const navigate = useNavigate();
 
-
-
   useEffect(() => {
     document.title = "Admin | Inventory";
     if (!products) {
       navigate('/');
     }
-  }, []);
+  },
+    // eslint-disable-next-line
+    []);
 
   return (<Container >
     {products &&

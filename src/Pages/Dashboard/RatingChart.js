@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Pie, Scatter } from 'react-chartjs-2';
+import { Pie } from 'react-chartjs-2';
 import { Skeleton, Box } from '@mui/material';
 
 const RatingChart = ({ chartsData }) => {
@@ -11,8 +11,6 @@ const RatingChart = ({ chartsData }) => {
 
     useEffect(() => {
         if (chartsData) {
-            // console.log("Rating", chartsData.products[0].rating)
-
             // const counts = {};    
             // for (const num of arr) {
             //     counts[num] = counts[num] ? counts[num] + 1 : 1;    //occurrence counter
@@ -33,13 +31,9 @@ const RatingChart = ({ chartsData }) => {
                 // counts[num.rating] = counts[num.rating] ? counts[num.rating] + 1 : 1;
             }
 
-            // const data = chartsData.products.map((ele) => {
-            //     return { x: ele.rating, y: ele.rating }; //Scatter
-            // });
             const data = Object.values(counts);
             const ratingLabels = Object.keys(counts);
             // console.log("Rating", counts)
-
             const dataSource = {
                 labels: ratingLabels,
                 datasets: [
@@ -73,7 +67,6 @@ const RatingChart = ({ chartsData }) => {
             <Box display="flex"
                 justifyContent="center"
                 alignItems="center" sx={{ boxShadow: 5, height: 20 + "rem", padding: 1 + "rem", backgroundColor: "white" }}>
-                {/* <Scatter data={ratingData} options={options} /> */}
                 <Pie data={ratingData} options={options} />
             </Box>}
         </>

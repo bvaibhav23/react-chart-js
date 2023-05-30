@@ -15,7 +15,9 @@ const DataContext = ({ children }) => {
             });
         fetchCart()
             .then(res => setCarts(res))
-    }, [])
+    },
+        // eslint-disable-next-line
+        [])
 
     return (<>
         <productContext.Provider value={[products, setProducts, carts, setCarts, filteredProducts, setFilteredProducts]}>

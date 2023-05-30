@@ -4,18 +4,18 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { productContext } from '../../Dynamic Data/dataContext';
-import { useNavigate } from 'react-router-dom';
 
 const InventoryFilter = () => {
     const [data, setData] = useState('');
     //destructure according to index[products, setProducts, carts, setCarts, filteredProducts, setFilteredProducts]
-    const [products, , , , filteredProducts, setFilteredProducts] = useContext(productContext);
+    const [products, , , , , setFilteredProducts] = useContext(productContext);
     const [category, setCategory] = useState([]);
-    const navigate = useNavigate();
     useEffect(() => {
         //let unique = [...new Set(myArray)];  // unique Elements
         setCategory([...new Set(products.map((ele) => ele.category))]);
-    }, [])
+    },
+        // eslint-disable-next-line
+        [])
 
     useEffect(() => {
         if (data === "") {
@@ -24,8 +24,10 @@ const InventoryFilter = () => {
         else {
             setFilteredProducts(products.filter((ele) => ele.category === data));
         }
-        console.log(filteredProducts);
-    }, [data])
+        // console.log(filteredProducts);
+    },
+        // eslint-disable-next-line
+        [data])
 
     return (
         <FormControl sx={{ m: 1, minWidth: 120 }} size="small" >

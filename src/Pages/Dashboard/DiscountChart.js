@@ -10,7 +10,6 @@ const PriceVsDiscount = ({ chartsData }) => {
     const [loader, setLoader] = useState(true);
     useEffect(() => {
         if (chartsData) {
-
             // console.log("chartsData", chartsData)
             const labels = chartsData.map((product) => {
                 return `User-${product.id}`;
@@ -22,7 +21,6 @@ const PriceVsDiscount = ({ chartsData }) => {
             const PriceData = chartsData.map((product) => {
                 return product.price;
             });
-
             const dataSource = {
                 labels,
                 datasets: [
@@ -44,7 +42,6 @@ const PriceVsDiscount = ({ chartsData }) => {
                     },
                 ],
             };
-
             setRevenueData(dataSource);
             setLoader(false);
         }
@@ -66,44 +63,18 @@ const PriceVsDiscount = ({ chartsData }) => {
         },
     }
 
-    // const options = {
-    //     responsive: true,
-    //     interaction: {
-    //         intersect: false,
-    //     },
-    //     scales: {
-    //         x: {
-    //             stacked: true,
-    //         },
-    //         y: {
-    //             stacked: true,
-    //             beginAtZero: true
+    return (<>
+        {loader ? <Skeleton variant="rectangular" width="100%" animation="pulse">
+            < div style={{ paddingTop: '57%' }
+            } />
+        </Skeleton > :
+            <Box display="flex"
+                justifyContent="center"
+                alignItems="center" sx={{ boxShadow: 5, height: 20 + "rem", padding: 1 + "rem", backgroundColor: "white" }}>
 
-    //         }
-    //     },
-    //     plugins: {
-    //         legend: {
-    //             position: "top",
-    //         },
-    //         title: {
-    //             display: false,
-    //             text: "Order Revenue",
-    //         },
-    //     },
-    // };
-
-    return (<> {loader ? <Skeleton variant="rectangular" width="100%" animation="pulse">
-        < div style={{ paddingTop: '57%' }
-        } />
-    </Skeleton > :
-        <Box display="flex"
-            justifyContent="center"
-            alignItems="center" sx={{ boxShadow: 5, height: 20 + "rem", padding: 1 + "rem", backgroundColor: "white" }}>
-
-            <Bar options={options} data={revenueData} />
-        </Box>}
+                <Bar options={options} data={revenueData} />
+            </Box>}
     </>
-
     )
 }
 

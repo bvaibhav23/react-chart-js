@@ -9,18 +9,11 @@ import Paper from '@mui/material/Paper';
 
 const DashboardTable = ({ orders }) => {
     const [row, setRow] = useState(null);
-    const [randomIndex, setRandomIndex] = useState(0);
-
-    //Math.floor(Math.random() * arr.length)
     useEffect(() => {
         if (orders) {
-            // setRandomIndex(Math.floor(Math.random() * orders.carts.length));
-            // setRow(orders.carts[randomIndex].products)
             setRow(orders.slice(0, 5));
         }
     }, [orders])
-
-
 
     function BasicTable() {
         return (<>

@@ -34,7 +34,7 @@ ChartJS.register(
 const Dashboard = () => {
     useEffect(() => { document.title = "Admin | Dashboard" }, []);
     //destructure according to index[products, setProducts, carts, setCarts, filteredProducts, setFilteredProducts]
-    const [products, , , , filteredProducts, setFilteredProducts] = useContext(productContext);
+    const [products, , , , filteredProducts] = useContext(productContext);
 
     // const [carts, setCarts] = useState();
     // const [products, setProducts] = useState();
@@ -55,7 +55,7 @@ const Dashboard = () => {
     },
         // eslint-disable-next-line
         [filteredProducts]);
-    console.log(products);
+    // console.log(products);
 
     return (<>
         <Grid container gap={5} spacing={1} justifyContent="space-evenly" alignItems="center">

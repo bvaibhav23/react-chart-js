@@ -23,7 +23,6 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 import { Link, useLocation } from "react-router-dom";
 import { Stack } from '@mui/material';
-import Dashboard from '../Pages/Dashboard';
 
 const drawerWidth = 180;
 
